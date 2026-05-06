@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria | Pane & Passione</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">🍞 Pane & Passione</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="btn-nav" style="background-color: var(--main-brown) !important;">Home</a></li>
+            <li><a href="galleria.html" class="btn-nav btn-galleria">Galleria</a></li>
+            <li><a href="index.html#ordini" class="btn-nav">Ordina Ora!</a></li>
+        </ul>
+    </nav>
+
+    <section class="gallery-section">
+        <div class="section-header-centered">
+            <h2>I Nostri Capolavori 📸</h2>
+            <p>Le foto scorrono da sole. Passa il mouse sotto per fermarle e scegliere!</p>
+        </div>
+
+        <!-- RETTANGOLO GRANDE -->
+        <div class="main-slider">
+            <img src="imagini/1.jpg" id="current-img" alt="Vetrina">
+            <div class="img-caption" id="caption">La nostra specialità #1</div>
+        </div>
+
+        <!-- RETTANGOLO MINIATURE (Con sensore mouse per fermare lo slide) -->
+        <div class="thumbnail-container" id="thumb-box" onmouseenter="stopAutoSlide()" onmouseleave="startAutoSlide()">
+            <!-- Ho inserito i 31 slot per le tue foto -->
+            <img src="imagini/1.jpg" class="thumb active" onclick="manualChange(1, 'Specialità #1', this)">
+            <img src="imagini/2.jpg" class="thumb" onclick="manualChange(2, 'Specialità #2', this)">
+            <img src="imagini/3.jpg" class="thumb" onclick="manualChange(3, 'Specialità #3', this)">
+            <img src="imagini/4.jpg" class="thumb" onclick="manualChange(4, 'Specialità #4', this)">
+            <img src="imagini/5.jpg" class="thumb" onclick="manualChange(5, 'Specialità #5', this)">
+            <img src="imagini/6.jpg" class="thumb" onclick="manualChange(6, 'Specialità #6', this)">
+            <img src="imagini/7.jpg" class="thumb" onclick="manualChange(7, 'Specialità #7', this)">
+            <img src="imagini/8.jpg" class="thumb" onclick="manualChange(8, 'Specialità #8', this)">
+            <img src="imagini/9.jpg" class="thumb" onclick="manualChange(9, 'Specialità #9', this)">
+            <img src="imagini/10.jpg" class="thumb" onclick="manualChange(10, 'Specialità #10', this)">
+            <img src="imagini/11.jpg" class="thumb" onclick="manualChange(11, 'Specialità #11', this)">
+            <img src="imagini/12.jpg" class="thumb" onclick="manualChange(12, 'Specialità #12', this)">
+            <img src="imagini/13.jpg" class="thumb" onclick="manualChange(13, 'Specialità #13', this)">
+            <img src="imagini/14.jpg" class="thumb" onclick="manualChange(14, 'Specialità #14', this)">
+            <img src="imagini/15.jpg" class="thumb" onclick="manualChange(15, 'Specialità #15', this)">
+            <img src="imagini/16.jpg" class="thumb" onclick="manualChange(16, 'Specialità #16', this)">
+            <img src="imagini/17.jpg" class="thumb" onclick="manualChange(17, 'Specialità #17', this)">
+            <img src="imagini/18.jpg" class="thumb" onclick="manualChange(18, 'Specialità #18', this)">
+            <img src="imagini/19.jpg" class="thumb" onclick="manualChange(19, 'Specialità #19', this)">
+            <img src="imagini/20.jpg" class="thumb" onclick="manualChange(20, 'Specialità #20', this)">
+            <img src="imagini/21.jpg" class="thumb" onclick="manualChange(21, 'Specialità #21', this)">
+            <img src="imagini/22.jpg" class="thumb" onclick="manualChange(22, 'Specialità #22', this)">
+            <img src="imagini/23.jpg" class="thumb" onclick="manualChange(23, 'Specialità #23', this)">
+            <img src="imagini/24.jpg" class="thumb" onclick="manualChange(24, 'Specialità #24', this)">
+            <img src="imagini/25.jpg" class="thumb" onclick="manualChange(25, 'Specialità #25', this)">
+            <img src="imagini/26.jpg" class="thumb" onclick="manualChange(26, 'Specialità #26', this)">
+            <img src="imagini/27.jpg" class="thumb" onclick="manualChange(27, 'Specialità #27', this)">
+            <img src="imagini/28.jpg" class="thumb" onclick="manualChange(28, 'Specialità #28', this)">
+            <img src="imagini/29.jpg" class="thumb" onclick="manualChange(29, 'Specialità #29', this)">
+            <img src="imagini/30.jpg" class="thumb" onclick="manualChange(30, 'Specialità #30', this)">
+            <img src="imagini/31.jpg" class="thumb" onclick="manualChange(31, 'Specialità #31', this)">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Pane & Passione | Via del Forno, 12</p>
+    </footer>
+
+    <script>
+        let currentIndex = 1;
+        const totalImages = 31;
+        let autoSlideTimer;
+
+        function changeImage(num, text, element) {
+            const currentImg = document.getElementById('current-img');
+            const caption = document.getElementById('caption');
+            
+            currentIndex = num;
+            currentImg.style.opacity = 0;
+            
+            setTimeout(() => {
+                currentImg.src = `imagini/${num}.jpg`;
+                caption.innerText = text || `Specialità #${num}`;
+                currentImg.style.opacity = 1;
+            }, 250);
+            
+            let thumbs = document.getElementsByClassName('thumb');
+            for (let t of thumbs) t.classList.remove('active');
+            
+            if(element) {
+                element.classList.add('active');
+                element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else {
+                const targetThumb = thumbs[num-1];
+                if(targetThumb) {
+                    targetThumb.classList.add('active');
+                    targetThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        }
+
+        function manualChange(num, text, element) {
+            changeImage(num, text, element);
+        }
+
+        function startAutoSlide() {
+            clearInterval(autoSlideTimer); 
+            autoSlideTimer = setInterval(() => {
+                let nextIndex;
+                do {
+                    nextIndex = Math.floor(Math.random() * totalImages) + 1;
+                } while (nextIndex === currentIndex);
+                
+                changeImage(nextIndex, `Specialità #${nextIndex}`);
+            }, 4000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideTimer);
+        }
+
+        window.onload = startAutoSlide;
+    </script>
+</body>
+</html>

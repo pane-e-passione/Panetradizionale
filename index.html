@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pane & Passione | Mondo Artigianale</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Il logo riporta sempre in alto -->
+        <a href="#" class="logo">🍞 Pane & Passione</a>
+        <ul class="nav-links">
+            <!-- Galleria e Ordina Ora ora hanno lo stesso stile -->
+            <li><a href="galleria.html" class="btn-nav btn-galleria">Galleria</a></li>
+            <li><a href="#ordini" class="btn-nav">Ordina Ora!</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Card -->
+    <header class="hero-container">
+        <div class="hero-card">
+            <div class="hero-text">
+                <h1>Il profumo della gioia!</h1>
+                <p>Pane caldo e focacce croccanti fatte con amore e lievito madre.</p>
+                <div class="cta-wrapper">
+                    <a href="#prodotti" class="btn-main">Scopri i Prodotti</a>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <img src="imagini/2.jpg" alt="Brutaria noastra">
+            </div>
+        </div>
+    </header>
+
+    <!-- Sezione Storia -->
+    <section id="storia-bubble">
+        <div class="cartoon-box">
+            <span class="badge">Chi Siamo</span>
+            <h2>Tradizione e Magia 🪄</h2>
+            <p>Usiamo solo <strong>lievito madre</strong> e farine selezionate. Ogni nostra pagnotta riposa 24 ore per diventare soffice e super digeribile!</p>
+        </div>
+    </section>
+
+    <!-- Sezione Prodotti -->
+    <section id="prodotti">
+        <div class="section-header-centered">
+            <h2>I Nostri Tesori 🥯</h2>
+            <p>Sfornati freschi ogni singola mattina</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="emoji">🍞</div>
+                <h3>Pane Integrale</h3>
+                <p>Ricco di fibre per darti tanta energia!</p>
+            </div>
+            <div class="product-card">
+                <div class="emoji">🥖</div>
+                <h3>Pane di Segale</h3>
+                <p>Gusto rustico e crosta croccante.</p>
+            </div>
+            <div class="product-card">
+                <div class="emoji">🍕</div>
+                <h3>Focaccia Barese</h3>
+                <p>Con pomodorini freschi e olio buono.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Ordini -->
+    <section id="ordini">
+        <div class="order-box">
+            <h2>Fai il tuo ordine! 🥖</h2>
+            <form action="https://formspree.io/f/mpqbrpbd" method="POST">
+                
+                <div class="form-group">
+                    <label>Nome e Cognome:</label>
+                    <input type="text" name="Nome_Completo" placeholder="Esempio: Mario Rossi" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Numero di Telefono:</label>
+                    <input type="tel" name="Telefono" placeholder="Esempio: +39 123 456 7890" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Indirizzo di Consegna:</label>
+                    <input type="text" name="Indirizzo" placeholder="Via, Numero, Città" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo di Pane:</label>
+                    <select name="Tipo_Pane" required>
+                        <option value="">Scegli il tuo pane...</option>
+                        <option value="Pane Integrale">Pane Integrale</option>
+                        <option value="Pane di Segale">Pane di Segale</option>
+                        <option value="Focaccia Barese">Focaccia Barese</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Quantità:</label>
+                    <select name="Quantita" required>
+                        <option value="1">1 pezzo</option>
+                        <option value="2">2 pezzi</option>
+                        <option value="3">3 pezzi</option>
+                        <option value="4">4 pezzi</option>
+                        <option value="5">5 pezzi</option>
+                        <option value="Più di 5">Oltre 5 (contattaci)</option>
+                    </select>
+                </div>
+
+                <!-- CONTENITORE PULSANTI AFFIANCATI -->
+                <div class="buttons-wrapper">
+                    <button type="submit">Manda in Forno! 🚀</button>
+                    <a href="https://wa.me/393381122968?text=Ciao! Vorrei ordinare del pane." class="btn-whatsapp" target="_blank">
+                        Ordina via WhatsApp
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Pane & Passione | Via del Forno, 12 | P.Iva 123456789</p>
+    </footer>
+
+</body>
+</html>
